@@ -23,6 +23,8 @@
     "test": "react-scripts test",
     "deploy": "gh-pages -d build",
     "build:css": "postcss src/style.css -o src/post.css",
+    "build:css2": "tailwindcss build src/style.css -o src/post.css",
+    "build:css-prod": "set NODE_ENV=production && npm run build:css2",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
