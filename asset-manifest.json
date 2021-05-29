@@ -1,22 +1,17 @@
 {
   "files": {
-    "main.css": "7dtd-integration/static/css/main.b574ba89.chunk.css",
-    "main.js": "7dtd-integration/static/js/main.216ced4d.chunk.js",
-    "main.js.map": "7dtd-integration/static/js/main.216ced4d.chunk.js.map",
+    "main.css": "7dtd-integration/static/css/main.dc1bbda2.chunk.css",
+    "main.js": "7dtd-integration/static/js/main.ba008b70.chunk.js",
     "runtime-main.js": "7dtd-integration/static/js/runtime-main.39a0a14b.js",
-    "runtime-main.js.map": "7dtd-integration/static/js/runtime-main.39a0a14b.js.map",
     "static/js/2.dc9e25ea.chunk.js": "7dtd-integration/static/js/2.dc9e25ea.chunk.js",
-    "static/js/2.dc9e25ea.chunk.js.map": "7dtd-integration/static/js/2.dc9e25ea.chunk.js.map",
     "static/js/3.70e535eb.chunk.js": "7dtd-integration/static/js/3.70e535eb.chunk.js",
-    "static/js/3.70e535eb.chunk.js.map": "7dtd-integration/static/js/3.70e535eb.chunk.js.map",
     "index.html": "7dtd-integration/index.html",
-    "static/css/main.b574ba89.chunk.css.map": "7dtd-integration/static/css/main.b574ba89.chunk.css.map",
     "static/js/2.dc9e25ea.chunk.js.LICENSE.txt": "7dtd-integration/static/js/2.dc9e25ea.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.39a0a14b.js",
     "static/js/2.dc9e25ea.chunk.js",
-    "static/css/main.b574ba89.chunk.css",
-    "static/js/main.216ced4d.chunk.js"
+    "static/css/main.dc1bbda2.chunk.css",
+    "static/js/main.ba008b70.chunk.js"
   ]
 }
