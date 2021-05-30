@@ -15,17 +15,17 @@ function App() {
         <p>下記ボタンをクリックすることで、そのコマンドをクリップボードにコピーします。</p>
       </div>
 
-      {json.map((cat) => (
-        <div className="py-4">
-          <h2 className="font-bold">{cat.name}</h2>
+      {json.map((cat, indexCat) => (
+        <div className="py-4" key={indexCat}>
+          <h2 className="font-bold">{cat.name}-{indexCat}</h2>
 
-          {cat.commands.map((cmdSet) => {
+          {cat.commands.map((cmdSet, cmdIndex) => {
             const cmd = cmdSet[0] as string
             const desc = cmdSet[1] as string
             const points = cmdSet[2] as number
 
             return (
-              <>
+              <span key={cmdIndex}>
                 <CopyToClipboard
                   text={cmd}
                   onCopy={() => {
@@ -37,7 +37,6 @@ function App() {
                   }}
                 >
                   <button
-                    key={cmd}
                     className={(cat.type === 'バフ' ? 'bg-blue-400' : 'bg-red-400') + ' border p-3 rounded '}
                     title={desc}
                   >
@@ -46,7 +45,7 @@ function App() {
                     {/* <p>{desc }</p> */}
                   </button>
                 </CopyToClipboard>
-              </>
+              </span>
             )
           })}
         </div>
