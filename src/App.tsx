@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import './post.css'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
@@ -38,11 +37,12 @@ function App() {
                   }}
                 >
                   <button
+                    key={cmd}
                     className={(cat.type === 'バフ' ? 'bg-blue-400' : 'bg-red-400') + ' border p-3 rounded '}
                     title={desc}
                   >
                     <h2>{cmd}</h2>
-                    <p>{points > -1 && "("+points+")"}</p>
+                    <p>{points > -1 && '(' + points + ')'}</p>
                     {/* <p>{desc }</p> */}
                   </button>
                 </CopyToClipboard>
