@@ -5,19 +5,23 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import json from './commands.json'
 
 function App() {
-  const [text, setText] = useState('aaa')
+  const [text, setText] = useState('')
   const [copied, setCopied] = useState(false)
+  const [timeId, setTimeId] = useState<number | undefined>(undefined)
   return (
     <div className="App p-5">
       <h1 className="text-3xl p-10 text-center">7 Days to Die Twitchインテグレーション コマンド支援ツール</h1>
 
       <div className="p-8">
         <p>下記ボタンをクリックすることで、そのコマンドをクリップボードにコピーします。</p>
+        <p>カッコ内の数字は消費ポイントです。</p>
       </div>
 
       {json.map((cat, indexCat) => (
         <div className="py-4" key={indexCat}>
-          <h2 className="font-bold">{cat.name}-{indexCat}</h2>
+          <h2 className="font-bold">
+            {cat.name}-{indexCat}
+          </h2>
 
           {cat.commands.map((cmdSet, cmdIndex) => {
             const cmd = cmdSet[0] as string
@@ -29,11 +33,14 @@ function App() {
                 <CopyToClipboard
                   text={cmd}
                   onCopy={() => {
+                    if(timeId)clearTimeout(timeId)
                     setText(cmd)
                     setCopied(true)
-                    setTimeout(() => {
-                      setCopied(false)
-                    }, 2000)
+                    setTimeId(
+                      window.setTimeout(() => {
+                        setCopied(false)
+                      }, 2000)
+                    )
                   }}
                 >
                   <button
