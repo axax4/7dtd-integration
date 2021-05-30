@@ -4,6 +4,11 @@ import './post.css'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import json from './commands.json'
 
+const TYPE_COLOR: any = {
+  バフ: 'bg-blue-400',
+  デバフ: 'bg-red-400',
+}
+
 function App() {
   const [text, setText] = useState('')
   const [copied, setCopied] = useState(false)
@@ -20,7 +25,7 @@ function App() {
       {json.map((cat, indexCat) => (
         <div className="py-4" key={indexCat}>
           <h2 className="font-bold">
-            {cat.name}-{indexCat}
+            {cat.name}
           </h2>
 
           {cat.commands.map((cmdSet, cmdIndex) => {
@@ -28,12 +33,13 @@ function App() {
             const desc = cmdSet[1] as string
             const points = cmdSet[2] as number
 
+            let color: string = TYPE_COLOR[cat.type] ?? 'bg-green-400'
             return (
               <span key={cmdIndex}>
                 <CopyToClipboard
                   text={cmd}
                   onCopy={() => {
-                    if(timeId)clearTimeout(timeId)
+                    if (timeId) clearTimeout(timeId)
                     setText(cmd)
                     setCopied(true)
                     setTimeId(
@@ -43,10 +49,7 @@ function App() {
                     )
                   }}
                 >
-                  <button
-                    className={(cat.type === 'バフ' ? 'bg-blue-400' : 'bg-red-400') + ' border p-3 rounded '}
-                    title={desc}
-                  >
+                  <button className={color + ' border p-3 rounded '} title={desc}>
                     <h2>{cmd}</h2>
                     <p>{points > -1 && '(' + points + ')'}</p>
                     {/* <p>{desc }</p> */}
